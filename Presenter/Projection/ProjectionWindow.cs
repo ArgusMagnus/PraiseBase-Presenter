@@ -438,7 +438,8 @@ namespace PraiseBase.Presenter.Projection
 
 		void SetProjectionText(Bitmap img, int fadeTime)
 		{
-			HideWebsite();
+			if (_webView.Visible)
+				HideWebsite();
 
 			if (fadeTime > 0)
 			{
