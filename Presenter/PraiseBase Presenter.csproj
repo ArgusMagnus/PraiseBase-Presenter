@@ -69,12 +69,6 @@
     <Reference Include="log4net">
       <HintPath>..\lib\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="PresentationFramework">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -84,12 +78,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsFormsIntegration">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
@@ -247,15 +235,7 @@
     <Compile Include="Importer\SongImporter.Designer.cs">
       <DependentUpon>SongImporter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Projection\ProjectionWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Projection\ProjectionWindow.Designer.cs">
-      <DependentUpon>ProjectionWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Projection\ProjectionControl.xaml.cs">
-      <DependentUpon>ProjectionControl.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Projection\ProjectionWindow.cs" />
     <Compile Include="Presenter\SongBrowserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,10 +375,6 @@
       <DependentUpon>SongImporter.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Projection\ProjectionWindow.resx">
-      <DependentUpon>ProjectionWindow.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presenter\SongBrowserDialog.resx">
       <DependentUpon>SongBrowserDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -442,14 +418,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Projection\ProjectionControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -712,6 +680,14 @@
       <Project>{67651b76-5abd-4040-9a8f-3833130fc77d}</Project>
       <Name>Core Libraries</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xwt">
+      <Version>0.2.11</Version>
+    </PackageReference>
+    <PackageReference Include="Xwt.WPF">
+      <Version>0.2.11</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

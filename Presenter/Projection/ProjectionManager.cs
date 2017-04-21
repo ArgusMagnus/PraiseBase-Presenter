@@ -108,7 +108,7 @@ namespace PraiseBase.Presenter.Projection
                         foreach (var s in ScreenManager.Instance.AvailableProjectionScreens)
                         {
                             ProjectionWindow pw = new ProjectionWindow(s);
-                            pw.BackColor = Settings.Default.ProjectionBackColor;
+                            pw.BackgroundColor = Settings.Default.ProjectionBackColor.ToXwtColor();
                             ProjectionWindows.Add(pw);
                         }
                         return true;
@@ -116,7 +116,7 @@ namespace PraiseBase.Presenter.Projection
                     else
                     {
                         ProjectionWindow pw = new ProjectionWindow(ScreenManager.Instance.MainScreen);
-                        pw.BackColor = Settings.Default.ProjectionBackColor;
+                        pw.BackgroundColor = Settings.Default.ProjectionBackColor.ToXwtColor();
                         ProjectionWindows.Add(pw);
                         return false;
                     }
@@ -141,7 +141,7 @@ namespace PraiseBase.Presenter.Projection
                             else if (i < ScreenManager.Instance.AvailableProjectionScreens.Count)
                             {
                                 ProjectionWindow pw = new ProjectionWindow(ScreenManager.Instance.AvailableProjectionScreens[i]);
-                                pw.BackColor = Settings.Default.ProjectionBackColor;
+                                pw.BackgroundColor = Settings.Default.ProjectionBackColor.ToXwtColor();
                                 ProjectionWindows.Add(pw);
                             }
                             // Destroy window if a screen has been removed
@@ -251,7 +251,7 @@ namespace PraiseBase.Presenter.Projection
             {
                 foreach (var pw in ProjectionWindows)
                 {
-                    Bitmap bmp = new Bitmap(pw.Width, pw.Height);
+                    Bitmap bmp = new Bitmap((int)pw.Width, (int)pw.Height);
                     Graphics gr = Graphics.FromImage(bmp);
                     layerContent.WriteOut(gr);
 
@@ -274,7 +274,7 @@ namespace PraiseBase.Presenter.Projection
             {
                 foreach (var pw in ProjectionWindows)
                 {
-                    Bitmap bmp = new Bitmap(pw.Width, pw.Height);
+                    Bitmap bmp = new Bitmap((int)pw.Width, (int)pw.Height);
                     Graphics gr = Graphics.FromImage(bmp);
                     layerContent.WriteOut(gr);
 
